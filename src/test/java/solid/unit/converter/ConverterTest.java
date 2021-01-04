@@ -18,8 +18,8 @@ public class ConverterTest {
 
     @org.junit.Test
     public void givenKgToLb_whenExecuteConversion_thenReturnedResultIsCorrect() {
-        double result = underTest.executeConversion(ConverterInputsParser.parse("12", "kg", "lb"));
-        Assert.assertEquals(26.46,result, 0.01);
+        double result = underTest.executeConversion(ConverterInputsParser.parse("1500100900", "kg", "lb"));
+        Assert.assertEquals(3307152446.15, result, 0.01);
     }
 
     @org.junit.Test
