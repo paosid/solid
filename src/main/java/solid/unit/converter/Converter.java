@@ -1,10 +1,11 @@
 package solid.unit.converter;
 
 public class Converter {
-    ConvertersFactory convertersFactory = new ConvertersFactory();
+    ConvertibleFactory convertibleFactory = new ConvertibleFactory();
 
     double executeConversion(ConverterInputs converterInputs){
-        return convertersFactory.convert(converterInputs.converterUnits, converterInputs.value);
+        Convertible convertibleInstance = convertibleFactory.createConvertibleInstance(converterInputs.converterUnits);
+        return convertibleInstance.convert(converterInputs.value);
     }
 
 }

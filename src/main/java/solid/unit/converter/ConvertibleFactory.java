@@ -3,15 +3,14 @@ package solid.unit.converter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConvertersFactory {
-    private Map<UnitType, CreatingConverter> creationConvertersByUnitTypes = new HashMap<>();
+public class ConvertibleFactory {
+    private Map<UnitType, Convertible> creationConvertersByUnitTypes = new HashMap<>();
 
-    double convert(UnitType unitsConversions, Integer value) {
-        CreatingConverter creatingConverters = this.creationConvertersByUnitTypes.get(unitsConversions);
-        return creatingConverters.executeConversion(value);
+    Convertible createConvertibleInstance(UnitType unitsConversions) {
+        return this.creationConvertersByUnitTypes.get(unitsConversions);
     }
 
-    public ConvertersFactory() {
+    public ConvertibleFactory() {
         creationConvertersByUnitTypes.put(UnitType.KGLB, new KilogramsToPoundsConverter());
         creationConvertersByUnitTypes.put(UnitType.LBKG, new PoundsToKilogramsConverter());
         creationConvertersByUnitTypes.put(UnitType.CMIN, new CentimetersToInchesConverter());
